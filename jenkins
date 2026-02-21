@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('clone') {
+            steps {
+                git branch:,='main',url:"https://github.com/pavan-deshagani/Calculator.git"
+            }
+        }
+        
+        stage('compile') {
+            steps {
+                sh 'javac Calculator.java'
+            }
+        }
+        
+        stage('build') {
+            steps {
+                sh 'java Calculator 2 1'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deployment is completed'
+            }
+        }
+        
+    }
+    
+
+        
+    
+    
+    
+}
